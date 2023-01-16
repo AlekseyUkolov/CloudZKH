@@ -10,7 +10,6 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="Авторизация"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,12 +21,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="16dp"
+        android:autoText="false"
         android:ems="10"
         android:hint="Логин"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -38,6 +40,7 @@
         android:ems="10"
         android:hint="Пароль"
         android:inputType="textPassword"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/edLogin"
         app:layout_constraintStart_toStartOf="@+id/edLogin"
         app:layout_constraintTop_toBottomOf="@+id/edLogin" />
@@ -51,16 +54,6 @@
         app:layout_constraintStart_toStartOf="@+id/edPassword"
         app:layout_constraintTop_toBottomOf="@+id/edPassword" />
 
-    <TextView
-        android:id="@+id/tvToken"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bGetCounterType" />
-
     <Button
         android:id="@+id/bGetCounterType"
         android:layout_width="wrap_content"
@@ -70,4 +63,37 @@
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="@+id/bSignIn"
         app:layout_constraintTop_toBottomOf="@+id/bSignIn" />
+
+    <Button
+        android:id="@+id/bGetRooms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Запросить показания"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bGetCounterType" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="79dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bGetRooms">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvToken"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical"
+                android:text="TextView"
+                android:verticalScrollbarPosition="right" />
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

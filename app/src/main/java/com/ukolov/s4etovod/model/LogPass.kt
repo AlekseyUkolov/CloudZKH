@@ -1,4 +1,4 @@
-package com.ukolov.s4etovod
+package com.ukolov.s4etovod.model
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,13 +1,15 @@
 package com.ukolov.s4etovod.api
 
-import com.ukolov.s4etovod.LogPass
-import com.ukolov.s4etovod.pojo.CounterType
-import com.ukolov.s4etovod.pojo.User
+import com.ukolov.s4etovod.model.LogPass
+import com.ukolov.s4etovod.model.Rooms
+import com.ukolov.s4etovod.model.User
 import io.reactivex.Single
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
 
 //интерфейс описывает какие запросы можно делать к серверу
-interface MessageApi {
+interface RetrofitService {
 
     @Headers("Content-Type: application/json")
     @POST("/users/login")
@@ -22,11 +24,30 @@ interface MessageApi {
         //@Header("Authorization: Bearer ")  token :String
         @HeaderMap headers: Map<String, String>
 
-    ):Single<CounterType>
+    ):Single<Rooms>
 
     //@Headers("Content-Type: application/json")
     @GET("/counterTypes")
     fun getCounterType1(
         @Header("Authorization")  token :String //динамический параметр. токен пользователя
-    ):Single<CounterType>
+    ):Single<Rooms>
+
+    @GET("/rooms")
+    fun getRooms(
+        @Header("Authorization")  token :String //динамический параметр. токен пользователя
+    ):Single<Rooms>
+
+    companion object {
+        var retrofitService: RetrofitService? = null
+        fun getInstance() : RetrofitService {
+            if (retrofitService == null) {
+                val retrofit = Retrofit.Builder()
+                    .baseUrl("https://api-test.s4vod.ru")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build()
+                retrofitService = retrofit.create(RetrofitService::class.java)
+            }
+            return retrofitService!!
+        }
+    }
 }

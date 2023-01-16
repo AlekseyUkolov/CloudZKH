@@ -1,4 +1,4 @@
-package com.ukolov.s4etovod.pojo
+package com.ukolov.s4etovod.model
 
 data class User(
     val user: UserX?,
