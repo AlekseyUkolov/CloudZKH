@@ -6,7 +6,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.ukolov.s4etovod.api.RetrofitService
 import com.ukolov.s4etovod.databinding.ActivityMainBinding
-import com.ukolov.s4etovod.model.LogPass
+import com.ukolov.s4etovod.model.login.LogPass
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
