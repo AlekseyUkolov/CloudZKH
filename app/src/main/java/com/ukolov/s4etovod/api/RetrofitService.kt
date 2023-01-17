@@ -1,6 +1,6 @@
 package com.ukolov.s4etovod.api
 
-import com.ukolov.s4etovod.model.LogPass
+import com.ukolov.s4etovod.model.login.LogPass
 import com.ukolov.s4etovod.model.Rooms
 import com.ukolov.s4etovod.model.User
 import io.reactivex.Single
